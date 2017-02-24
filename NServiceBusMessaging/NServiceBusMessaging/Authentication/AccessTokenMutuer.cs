@@ -13,8 +13,11 @@ namespace NServiceBusMessaging.Authentication
     {
         public Task MutateOutgoing(MutateOutgoingTransportMessageContext context)
         {
+
+            context.OutgoingHeaders["test_token"] = HttpContext.Current.Request.Params["test_token"];
+            return Task.FromResult(0);
             
-            throw new NotImplementedException();
+           
         }
        
     }
